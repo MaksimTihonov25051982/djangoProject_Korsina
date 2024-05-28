@@ -1,0 +1,78 @@
+.menu {
+
+    list-style: none; margin: 0;padding: 0;
+}
+
+.menu li {
+    display: inline;
+}
+
+.menu li a {
+    text-decoration: none;
+    padding: 10px 15px;
+    color: #fff;
+    background: linear-gradient(to right,#ff8a00, #e52e71);
+    transition: background 0.3s;
+}
+
+.menu li a:hover {
+background: linear-gradient(to right, #ff0, #e00);
+}
+
+/*menu  {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    background-color: white;*/
+/*    padding: 10px;*/
+/*}*/
+
+/*menu a {*/
+/*    text-decoration: none;*/
+/*    color: #fff;*/
+/*    font-size: 1.2em;*/
+/*    margin: 20px;*/
+/*    line-height: 2em;*/
+/*}*/
+
+/*menu a:hover {*/
+/*    !*color: #666;*!*/
+/*   background: linear-gradient(to right, #ff0, #e00);*/
+/*}*/
+
+.text{
+    text-align: center;
+    border-radius: 10px;
+    margin: auto;
+    border: 1.5px #666666;
+}
+
+
+
+.image {
+    text-align: center;
+}
+
+.image img {
+    width: 100%;
+}
+
+.top {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1  {
+    text-align: center;
+    font-style: italic;
+    font-size: 54px;
+    color: #ff8a00;
+}
+
+.exit {
+    padding: 20px;
+}
+
+
+
+
+

@@ -1,0 +1,43 @@
+table {
+    border-collapse: collapse;
+    background-color: white;
+    width: 80%;
+    margin: auto;
+}
+
+table td {
+    width: 25%;
+    text-align: center;
+    font-size: 2em;
+    border: 2px solid  black;
+    height: 60px;
+}
+
+table img {
+    width: 30%;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f4f2;
+}
+
+.pm {
+    width: 5px;
+}
+
+.pm button {
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+.del button {
+    width: 100%;
+    height: 100%;
+}
+
+h2 {
+    text-align: right;
+    margin: 40px 150px 20px 20px;
+}

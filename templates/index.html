@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+{% block head %}
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+        <link rel="stylesheet" href="{% static 'css/1.css' %}">
+    </head>
+{% endblock %}
+
+<body>
+    {% block menu %}
+    <h1>Магазин.RU</h1>
+        <div class="top">
+            <ol class="menu">
+                <li><a href="{% url 'home' %}">Главная.</a></li>
+                <li><a href="{% url 'goods' 'П' %}">Продукты.</a></li>
+                <li><a href="{% url 'goods' 'Л' %}">Лекарства.</a></li>
+                <li><a href="{% url 'goods' 'О' %}">Одежда.</a></li>
+                <li><a href="{% url 'goods' 'По' %}">Посуда.</a></li>
+                <li><a href="{% url 'cart' %}">Корзина.</a></li>
+
+              {# ##########        Регистрация      ##########}
+                {% if not user.is_authenticated %}
+                    <li><a href="{% url 'login' %}">Вход.</a></li>
+                {% else %}
+                    <li><a href="{% url 'cabinet' %}">Кабинет.</a></li>
+                    <a href="" class="exit">
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Выход.</button>
+                        </form>
+                    </a>
+
+                {% endif %}
+              {###############################################}
+            </ol>
+        </div>
+    {% endblock %}
+
+    {% block content %}
+        {# ##########        Регистрация      ##########}
+        {% if user.is_anonymus %}
+            <h2>Привет Гость!</h2>
+        {% else %}
+            <h2>Привет {{ user.username }}</h2>
+        {% endif %}
+        {###############################################}
+        <div class="image">
+            <img src="https://bentsteel.ru/wp-content/uploads/2019/11/magazin1.png" alt="" width="400">
+        </div>
+    {% endblock %}
+</body>
+</html>

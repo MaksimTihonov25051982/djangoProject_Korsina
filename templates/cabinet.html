@@ -1,0 +1,56 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block head %}
+    <head>
+        <meta charset="UTF-8">
+        <title>Кабинет.</title>
+        <link rel="stylesheet" href="{% static 'css/1.css' %}">
+        <link rel="stylesheet" href="{% static 'css/3.css' %}">
+    </head>
+{% endblock %}
+
+{% block content %}
+    <h1>Кабинет пользователя.</h1>
+    <h2>Это ваш кабинет. {{ user.username }}</h2>
+    <h2>Дата регистрации: {{ user.date_joined }}</h2>
+    <h2>Ваша почта: {{ user.email }}</h2>
+    <h4>Ваши заказы.</h4>
+    <table>
+        <tr>
+            <th>Адрес доставки</th>
+            <th>Телефон</th>
+            <th>Статус доставки</th>
+            <th>Итог</th>
+            <th>Товары</th>
+        </tr>
+        {% for one in items %}
+            <tr>
+                <td>{{ one.adres }}</td>
+                <td>{{ one.telefon }}</td>
+                <td>{{ one.status }}</td>
+                <td>{{ one.total }}</td>
+                <td>
+{#                    {% for i in one.items.all %}#}
+                      <a href="{% url 'myzakaz' one.id %}">
+                          Подробнее.
+                      </a>
+{#                    {% endfor %}#}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{% url 'login' %}">
+        <button>
+            Сменить подписку.
+        </button>
+    </a>
+    {% if form %}
+        <form action="" method="post">
+        {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Сменить.">
+        </form>
+    {% endif %}
+{% endblock %}
